@@ -213,7 +213,6 @@ inline void MOSI_protocol::do_snoop_O (Mreq *request)
   switch (request->msg) {
   case GETS:
     send_DATA_on_bus(request->addr,request->src_mid);
-    state = MOSI_CACHE_S;
     break;
   case GETM:
     send_DATA_on_bus(request->addr,request->src_mid);
