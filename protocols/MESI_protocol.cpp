@@ -187,6 +187,7 @@ inline void MESI_protocol::do_snoop_S (Mreq *request)
     set_shared_line();
     break;
   case GETM:
+    set_shared_line();
     state = MESI_CACHE_I;
     break;
   case DATA:
@@ -268,8 +269,10 @@ inline void MESI_protocol::do_snoop_SM (Mreq *request)
 {
 	switch (request->msg) {
 	case GETS:
+    set_shared_line();
     break;
 	case GETM:
+    set_shared_line();
     state = MESI_CACHE_IM;
 		break;
 	case DATA:
