@@ -76,11 +76,11 @@ void Simulator::dump_stats ()
     {
     	get_L1(i)->dump_hash_table();
     }
-    fprintf(stdout,"%8lld\t",global_clock);
-    fprintf(stdout,"%8ld\t",cache_misses);
-    fprintf(stdout,"%8ld\t",cache_accesses);
-    fprintf(stdout,"%8ld\t",silent_upgrades);
-    fprintf(stdout,"%8ld\t",cache_to_cache_transfers);
+    fprintf(stdout,"\nRun Time:         %8lld cycles\n",global_clock);
+    fprintf(stdout,"Cache Misses:     %8ld misses\n",cache_misses);
+    fprintf(stdout,"Cache Accesses:   %8ld accesses\n",cache_accesses);
+    fprintf(stdout,"Silent Upgrades:  %8ld upgrades\n",silent_upgrades);
+    fprintf(stdout,"$-to-$ Transfers: %8ld transfers\n",cache_to_cache_transfers);
 }
 
 void Simulator::run ()
@@ -126,7 +126,7 @@ void Simulator::run ()
             }
     }
 
-    //fprintf(stderr,"\n\nSimulation Finished\n");
+    fprintf(stderr,"\n\nSimulation Finished\n");
     dump_stats();
 }
 
